@@ -18,9 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <glkView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOM-ey-Pde">
+                            <glkView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOM-ey-Pde">
                                 <rect key="frame" x="0.0" y="44" width="375" height="690.33333333333337"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="v9r-G6-mgP" appends="YES" id="FLr-DW-m5n"/>
@@ -29,9 +28,12 @@
                                     <outletCollection property="gestureRecognizers" destination="0Bt-6F-XXg" appends="YES" id="JnP-zj-Cep"/>
                                 </connections>
                             </glkView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldo-GQ-cM9">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldo-GQ-cM9">
                                 <rect key="frame" x="163" y="750.33333333333337" width="49" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="SyN-lP-85s"/>
+                                    <constraint firstAttribute="height" constant="36" id="uTp-yz-r3G"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,9 +42,12 @@
                                     <action selector="saveBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g1Z-VC-Utz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-Vu-Avy">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-Vu-Avy">
                                 <rect key="frame" x="310" y="752" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NzY-Fu-vE3"/>
+                                    <constraint firstAttribute="width" constant="40" id="vnk-9c-14t"/>
+                                </constraints>
                                 <state key="normal" title="Mode" image="play">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -50,9 +55,12 @@
                                     <action selector="modeBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gj7-Wr-nLK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJf-Jg-e36">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJf-Jg-e36">
                                 <rect key="frame" x="32" y="754" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="DOX-NR-afg"/>
+                                    <constraint firstAttribute="width" constant="40" id="tGK-5l-vef"/>
+                                </constraints>
                                 <state key="normal" title="Open" image="upload">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -62,9 +70,22 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hxA-Vu-Avy" secondAttribute="trailing" constant="25" id="4Iu-9n-zBZ"/>
+                            <constraint firstItem="Ldo-GQ-cM9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8oz-6R-zDb"/>
+                            <constraint firstItem="EOM-ey-Pde" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9th-Vz-VUg"/>
+                            <constraint firstItem="EOM-ey-Pde" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AMM-hf-Dd6"/>
+                            <constraint firstItem="EOM-ey-Pde" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="G7D-WS-FL6"/>
+                            <constraint firstItem="pJf-Jg-e36" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Swb-52-SWm"/>
+                            <constraint firstAttribute="bottom" secondItem="Ldo-GQ-cM9" secondAttribute="bottom" constant="25.670000000000002" id="Zmg-Y6-od0"/>
+                            <constraint firstAttribute="bottom" secondItem="pJf-Jg-e36" secondAttribute="bottom" constant="18" id="eoX-6C-50q"/>
+                            <constraint firstItem="Ldo-GQ-cM9" firstAttribute="top" secondItem="EOM-ey-Pde" secondAttribute="bottom" constant="16" id="h01-of-egh"/>
+                            <constraint firstAttribute="bottom" secondItem="hxA-Vu-Avy" secondAttribute="bottom" constant="20" id="uQW-ZR-qvl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="btnMode" destination="hxA-Vu-Avy" id="CUT-UC-fuV"/>
                         <outlet property="gestureRecognizer" destination="v9r-G6-mgP" id="hTn-Da-lcf"/>
                         <outlet property="glkView" destination="EOM-ey-Pde" id="iIg-Qo-6zc"/>
                         <outlet property="rotationGestureRecognizer" destination="v9r-G6-mgP" id="L2v-UD-clR"/>

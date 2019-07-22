@@ -30,13 +30,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OpenGL_Test/Helpers/ComplexShader.swift"
-            timestampString = "585399870.596669"
+            timestampString = "585477189.030095"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "bindTime(time:)"
-            landmarkType = "7">
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "ComplexShader"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

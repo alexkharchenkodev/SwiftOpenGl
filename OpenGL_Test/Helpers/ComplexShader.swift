@@ -35,12 +35,10 @@ class ComplexShader: Base{
         
         glUniform1f(GLint(self.speed), 10)
         glUniform2f(GLint(self.strength), 0.1, 0.8);
-        print(self.timef)
         glUniform1f(GLint(self.time), UserDefaults.standard.float(forKey: "time"))
     }
     
     override func bindTime(time: Float) {
-        print(time)
         glUniform1f(GLint(self.time), time)
     }
     

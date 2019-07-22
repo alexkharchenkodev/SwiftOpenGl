@@ -12,9 +12,11 @@ class ViewController: UIViewController {
     @IBOutlet var rotationGestureRecognizer: UIPanGestureRecognizer!
     @IBOutlet var gestureRecognizer: UIPanGestureRecognizer!
 
+    @IBOutlet weak var glkView: GLKView!
+    @IBOutlet weak var btnMode: UIButton!
+    
     var model:Model!
     var oglQueue:DispatchQueue!
-    @IBOutlet weak var glkView: GLKView!
     var imagePicker: UIImagePickerController!
     var glTextureLoader:GLKTextureLoader!
     var glShareGroup:EAGLSharegroup!
@@ -34,6 +36,8 @@ class ViewController: UIViewController {
   //  var triangle: BaseModel!
     var maskObjects:[BaseModel]!
     var selectedObject: BaseModel!
+    
+    var playMode: PlayMode = .stop
     
     private var time : Float = 0
     var timer = Timer()
@@ -56,15 +60,18 @@ class ViewController: UIViewController {
     }
     
     func scheduledTimerWithTimeInterval(){
-        // Scheduling timer to Call the function "updateCounting" with the interval of 0.1 seconds
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: Selector(("updateCounting")), userInfo: nil, repeats: true)
     }
     
     @objc func updateCounting(){
-        
-        print(time)
-        time += 0.1
-        UserDefaults.standard.set(time, forKey: "time")
+        if (playMode == .play) {
+            time += 0.1
+            UserDefaults.standard.set(time, forKey: "time")
+            drawCalls.append {
+                self.picture.renderWithParentModelViewMatrix()
+            }
+            glkView.setNeedsDisplay()
+        }
     }
     
     func configureGlkitView(){
@@ -177,12 +184,16 @@ extension ViewController {
     
     @IBAction func modeBtnPressed(_ sender: Any) {
         if let _ = model.image{
-            model.switchMode()
-            shader.mode = model.mode.rawValue
-            drawCalls.append {
-                self.picture.renderWithParentModelViewMatrix()
+            if (playMode == .stop) {
+                playMode = .play
+                time = 0.0
+                btnMode.setImage(UIImage(named: "stop"), for: .normal)
+            } else {
+                playMode = .stop
+                btnMode.setImage(UIImage(named: "play"), for: .normal)
             }
-            glkView.setNeedsDisplay()
+//            model.switchMode()
+//            shader.mode = model.mode.rawValue
         }
     }
     
@@ -237,7 +248,6 @@ extension ViewController:UIImagePickerControllerDelegate, UINavigationController
                 
                 maskFBO = FBO(width: GLsizei(image.size.width), height: GLsizei(image.size.height))
                 square = SquareMask(width: maskFBO.imgWidth, height: maskFBO.imgHeight)
-              //  triangle = TriangleMask(width: maskFBO.imgWidth, height: maskFBO.imgHeight)
                 selectedObject = square
                 maskObjects = [square]
                 maskFBO.drawToFramebuffer(objects: maskObjects)
@@ -254,9 +264,6 @@ extension ViewController:UIImagePickerControllerDelegate, UINavigationController
 extension ViewController:GLKViewDelegate{
     func glkView(_ view: GLKView, drawIn rect: CGRect) {
         fillWithColor(r: 0.0, g: 0.0, b: 0.0, a: 1.0)
-
-        
-        
         let lastCall = drawCalls.popLast()
         if let call = lastCall{
             call()
