@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OpenGL_Test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <glkView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOM-ey-Pde">
+                                <rect key="frame" x="0.0" y="44" width="375" height="690.33333333333337"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="v9r-G6-mgP" appends="YES" id="FLr-DW-m5n"/>
+                                    <outletCollection property="gestureRecognizers" destination="MU2-49-jn3" appends="YES" id="wtn-4o-t5T"/>
+                                    <outletCollection property="gestureRecognizers" destination="bl5-YX-klA" appends="YES" id="mRJ-Tl-OBU"/>
+                                    <outletCollection property="gestureRecognizers" destination="0Bt-6F-XXg" appends="YES" id="JnP-zj-Cep"/>
+                                </connections>
+                            </glkView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldo-GQ-cM9">
+                                <rect key="frame" x="163" y="750.33333333333337" width="49" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g1Z-VC-Utz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-Vu-Avy">
+                                <rect key="frame" x="310" y="752" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Mode" image="play">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="modeBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gj7-Wr-nLK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJf-Jg-e36">
+                                <rect key="frame" x="32" y="754" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Open" image="upload">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZTf-EF-Zea"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="gestureRecognizer" destination="v9r-G6-mgP" id="hTn-Da-lcf"/>
+                        <outlet property="glkView" destination="EOM-ey-Pde" id="iIg-Qo-6zc"/>
+                        <outlet property="rotationGestureRecognizer" destination="v9r-G6-mgP" id="L2v-UD-clR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="v9r-G6-mgP">
+                    <connections>
+                        <action selector="handlePan:" destination="BYZ-38-t0r" id="Y8m-57-NM9"/>
+                    </connections>
+                </panGestureRecognizer>
+                <rotationGestureRecognizer id="MU2-49-jn3">
+                    <connections>
+                        <action selector="handleRotationGesture:" destination="BYZ-38-t0r" id="gI0-Vc-Bvn"/>
+                    </connections>
+                </rotationGestureRecognizer>
+                <pinchGestureRecognizer id="bl5-YX-klA">
+                    <connections>
+                        <action selector="handlePinch:" destination="BYZ-38-t0r" id="8O3-DI-qB7"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <tapGestureRecognizer id="0Bt-6F-XXg">
+                    <connections>
+                        <action selector="handleTap:" destination="BYZ-38-t0r" id="2pN-Nf-DJE"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="133.00492610837438"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="play" width="225" height="225"/>
+        <image name="upload" width="225" height="225"/>
+    </resources>
+</document>
